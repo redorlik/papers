@@ -1,0 +1,51 @@
+\section{Future Research}
+In this section the planned work for the remainder of the phd study will be discussed. The focus of the section is the planned scientific contributions.
+
+\subsection{Improving estimation of emissions for single trips}
+As outlined in section \ref{Modelling}, the current modelling focus is to create and maintain national inventories, which leads to a focus on mean values for emission factors, driving patterns and trip patterns. To be able to provide personalised information on specific transportation behaviour, there is a need to provide more detailed models for the emission of single trips. In this section an outline for possible algorithms for reaching that goal is presented.
+
+One proposal is to divide a trip into four different types of driving : Idle, accelerate, cruise and decelerate. For each type of driving a emission profile can be derived and thus the emission for each type can be determined. To total emission for a trip can then be determined as the sum of the emission for each type.
+
+\subsubsection{Idle emissions}\label{Idle}
+Detection of idle situations can be done with combination of GPS data and accelerometer data. The GPS data can be used to estimate the speed of the vehicle, and the accelerometer can be used to measure the engine speed to confirm that we are in idle mode. There are some literature about measuring emissions from idling, but it might be necessary to update with new measurements. A possible source for idle emission data could be the approval data for Danish biannual vehicle inspections, since part of the inspection is a measurement of the contents of the exhaust in idle mode.
+
+\subsubsection{Emissions when accelerating}
+The horizontal acceleration can be determined by finding the direction of gravity in respect to the device, through a variety of methods. These methods will have to be evaluated to find a suitable solution for the application at hand.
+When the gravity direction has been determined, the horizontal acceleration will be either close to zero, when cruising or idle, or have a significant value due to acceleration, turning or deceleration. It is believed that it will be possible to provide a stable algorithm for detecting horizontal acceleration and distinguish between turning and acceleration.
+
+To model the emission from an accelerating vehicle information, such as engine size and vehicle weight, is needed. This information has to be given as input to the model by the user, or be inferred from the Transportation Mode Detection part of EcoSense.
+
+Another input to the model could be the road grade, since the engine will have to work harder, thus emitting more pollutants, if the vehicle is going uphill. By using the GPS data to get information on the position, the road grade can be gleaned from a digital road network. By fusing the information from these different sources the emission modelling  can be further improved.  
+
+\subsubsection{Emissions when decelerating}
+When decelerating, there are a couple of different situations to be ware of. The simplest situation is when the vehicle is braking using the mechanical brake. In this situation the engine will typically be in idle mode and the results from section \ref{Idle} can be reused. If the vehicle incorporate regenerative braking, motor braking or automatic transmission the situation is more complex. The proposal is to first ascertain if deceleration can be detected and then in an first approximation used the results from \ref{Idle}
+\subsubsection{Emissions when cruising}
+In the study of emission models, models for speed dependency of emissions have been found. These models can be used as is if we can determine that we are moving at a constant speed. These models are described in section \ref{Modelling}. The models are developed for emission modelling programs such as COPERT IV, which was developed as part of the EU project ARTEMIS. The models used in COPERT IV can be used to assign a speed dependent emission factor to specific vehicle types, engine sizes and fuel types.
+ 
+\subsubsection{Papers}
+A position paper on the state of the art of modelling emission from mobile sensing is planned.
+
+\subsection{Correlation of trips}
+In order to be able to spot inefficiencies in transportation patterns, a way of group, aggregate and correlate different trips are needed. The grouping of trips could be by persons, time of day, seasonal or geographic. The aggregation could be looking for all trips at specific location in a certain time period. Correlation is useful for finding trips which follow a certain route.
+
+In order to solve these problems efficiently, some heuristics may be useful. If a digital road network is available for the area under consideration, each trip can be converted into a subgraph of the  digital road network, under the assumption that vehicles travels along the roads. By having the trips as a graph instead of a time series of GPS locations, will simplify the task of correlation, thus good and efficient algorithms to convert GPS traces to road network graphs is needed.
+%\subsubsection{Methodology}
+\subsubsection{Impact}
+
+\subsubsection{Papers}
+\subsection{Field trials}
+Among the partners in the EcoSense project are some municipalities. The interest from the municipalities in the EcoSense project are among other, to be test sites for the results coming out of the project. In return the researcher partners get real world data to learn from in future research
+\subsubsection{S\o nderborg}
+In the municipality of S\o nderborg, there have been a long tradition for doing projects with focus to mitigate the threat of Climate Change through minimising the emission of climate forcing gasses. The task of finding ways of minimising the emission for S\o nderborg, has been put to an organisation called "Project Zero". "Project Zero initiates and run campaigns for raising the awareness of climate gas emissions, as well as measure the effects of these campaigns. "Project Zero" has campaigns that target citizens and other campaigns that target the local industry.
+
+As "Project Zero is a partner in EcoSense, we have the possibility to make mobile applications that underpin or are a part of the campaigns "Project Zero" runs. An interesting experiment could be measure the air pollution at the central bridge over Alssund, and compare with the danish city canyon model OSPM, and traffic data obtained from mobile sensing.
+
+\subsubsection{Herning}
+In Herning a project called "Herning cycler til m\aa nen", Herning bikes to the moon. The goal of the project is to get the citizens of the municipality to bike the distance to the moon. To measure the distance travelled on bike, participants can download an mobile application, developed in the EcoSense project. The app sends data to the EcoSense servers, and we thus get the possibility to look into real world transportation.
+
+
+
+\subsubsection{Papers}
+It would be reasonable to document the results of this real world (or at least outside the laboratory) trials in a number of papers. Each trial has different goals but share a number of tools.
+\subsection{Visiting researcher}
+During the last 2 years of the study I plan to visit an university, to participate in the research as it is performed there. I plan to have the stay at another research group during the teaching free period in the summer of 2015. I am currently actively looking for suitable research groups in other transportation research, air pollution modelling or geographic data research.

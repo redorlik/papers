@@ -1,0 +1,53 @@
+\documentclass[12pt]{scrartcl}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage{}
+\usepackage{color}
+\definecolor{Orange}{rgb}{1,0.5,0}
+\definecolor{HBGreen}{rgb}{0,0.8,0}
+\newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[Todo: #1]}}}}
+% Macro for writing in the margin comments on what is left to be done.
+\newif\ifdraft
+               \drafttrue
+               %\draftfalse
+\ifdraft
+\newcounter{ournotecounter}
+\newcommand{\ournote}[1]{%
+\textsf{\textbf{\textcolor{Orange}{[#1]}}}}
+\newcommand{\alnote}[1]{%
+\textsf{\textbf{\textcolor{HBGreen}{[#1]}}}}
+\typeout{Compiling in draft mode.}
+\else
+\newcommand{\ournote}[1]{}
+\newcommand{\bigournote}[1]{}
+\typeout{Compiling in final mode.}
+\fi
+
+\title{Modelling Emission of Climate gases }
+\subtitle{Using mobile sensing data}
+\author{Anders Lehmann}
+\date{July 2014}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+\newpage	
+\pagenumbering{arabic}	
+%\section{}
+%\subsection{}
+\input{intro}
+\include{climate_politics}
+\include{co2_models}
+\include{airpollution}
+\include{IoT}
+\include{futurework}
+\include{conclusion}
+\end{document}  

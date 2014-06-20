@@ -1,0 +1,25 @@
+\section{Air pollution dispersion Modelling}
+This section gives an overview of different ways for calculation of how the concentration of pollutants change over time and space. Typically we investigate how pollutants move from a pollution source with wind or through diffusion through the area of interest. The concentrations of the species change partly by dilution (the plume widens), and partly by chemical reactions in the atmosphere. The chemical reactions are dependent on different factors, such as light and temperature. In the section on OSPM the effect of the landscape (here a street canyon) is discussed.
+
+\subsection{Euler method}
+The Euler method is also called the box model. The area that we want to investigate is divided into boxes. In at least one box there can should be a source of pollution. The concentration of the pollutants in the box can be calculated as the amount of the species coming into the box (either through the walls of the box, from chemical reactions or from soured located inside the box) minus the amount of the species lost (through the walls, deposition or chemical reactions).
+
+For each time step the concentration of each specie is calculated by solving an ordinary differential equation (ODE) and the calculated concentrations are use to determine the start conditions for the next time step, as well as the boundary conditions for the surrounding boxes.
+
+Examples of box models are Danish Eulerian Hemisphere Model (DEHM), which calculates concentration of 63 different species and 120 chemical reactions in different scales (size of boxes).
+
+\subsection{Lagrange}
+In the Lagrange 
+
+\subsection{Atmospheric chemistry}
+An important complicating factor of modelling concentration of pollution is the fact that the different pollutants will undergo change due to chemical reactions
+
+\alenote{Is particulate matter modelled in the above mentioned models?}
+
+
+\subsection{DASK}
+
+\subsection{OSPM}
+The Operational Street Pollution Model is a model for calculation of pollution in urban environments. Due to turbulent wind conditions in urban street canyons the pollutants do not mix well with the surrounding air, there will be a tendency to have the heavier pollutants to concentrate on leeward side of the street canyon. The OSPM model considers the effects of street geometry, wind speed, emission factors and atmospheric chemistry (i.e. the $NO - NO_2 - O_3 cycle).
+
+
