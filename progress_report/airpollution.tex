@@ -9,17 +9,19 @@ For each time step the concentration of each specie is calculated by solving an 
 Examples of box models are Danish Eulerian Hemisphere Model (DEHM), which calculates concentration of 63 different species and 120 chemical reactions in different scales (size of boxes).
 
 \subsection{Lagrange}
-In the Lagrange 
+In the Lagrange method a parcel of air is considered  
 
 \subsection{Atmospheric chemistry}
 An important complicating factor of modelling concentration of pollution is the fact that the different pollutants will undergo change due to chemical reactions
 
-\alenote{Is particulate matter modelled in the above mentioned models?}
+\alnote{Is particulate matter modelled in the above mentioned models?}
 
 
 \subsection{DASK}
+DAnish Solver for chemical Kinetic (DASK) is a chemical compiler and solver. The idea of DASK is to automate the code generation for handling chemical reactions. In DASK you give the chemical reactions and their reaction rates as input, and the program transforms the input into fortran code. The generated Fortran code is called inside the ODE solver, so that it is easy to add new chemistry.
 
+Beside the chemical compiler, there is also an easy way of setting up scenarios for the solver to solve. 
 \subsection{OSPM}
-The Operational Street Pollution Model is a model for calculation of pollution in urban environments. Due to turbulent wind conditions in urban street canyons the pollutants do not mix well with the surrounding air, there will be a tendency to have the heavier pollutants to concentrate on leeward side of the street canyon. The OSPM model considers the effects of street geometry, wind speed, emission factors and atmospheric chemistry (i.e. the $NO - NO_2 - O_3 cycle).
+The Operational Street Pollution Model is a model for calculation of pollution in urban environments. Due to turbulent wind conditions in urban street canyons the pollutants do not mix well with the surrounding air, there will be a tendency to have the heavier pollutants to concentrate on leeward side of the street canyon. The OSPM model considers the effects of street geometry, wind speed, emission factors and atmospheric chemistry (i.e. the $NO - NO_2 - O_3$ cycle).
 
 
