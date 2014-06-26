@@ -73,34 +73,50 @@ In the Tier 2 method the emission inventories are estimated by estimating the tr
 
 Formulas
 
-\subsubsection{IPCC Tier 3 model} \alnote{ Size of data (huge)}
+
+
+\subsubsection{IPCC Tier 3 model} 
 The Tier 3 method takes the Tier 2 methods and improve on the estimated emission, by also consider the velocity distribution of the travelled distances, and by considering the effects of cold-starts on the total emissions.
 
 There are two ways proposed to calculate the effects of speed on exhaust emissions. Either by dividing the travelled distance into road types with different speed characteristics, i.e. urban, rural and highway. In this case the total emission for a vehicle class will be calculated as the sum of the product of travelled distance on a road type and the emission factor for that road type and vehicle type.
 
 The other method uses a measured speed to emission curve and a speed distribution function to estimate the emission. The emission is calculated as the integral of the speed distribution multiplied by the emission function.
 
-MORE formulas
+\alnote{MORE formulas}
 \begin{equation}
 e_{i,k,r} = \int{e(V)*f_{k,r}(V)dv}
 \end{equation}
 
 ($i$ is the the pollutant for which the emission is calculated).
 
+The data needed to use the Tier 3 method is quite extensive. For each of the 13 vehicle classes (divided by fuel type, vehicle size) activity data for milage for urban, rural and highway travel, hot start/cold start, as well as data for the number of vehicles in each emission regulation is needed. Fortunately the program COPERT 4 contains the emission factors, and country specific activity data can be downloaded to use for evaluating national inventories.
+
 
 \subsection{Modelling emissions from electric vehicles}
 The emissions for electric cars are calculated from near real time emission data from Energinet.dk, under the assumption that electric cars will be charged with electricity from the public grid. There is for now no way to detect if the charging of electric vehicles are not done through the public electric grid.
 \subsection {Implementation}
 The emission factors for combustion engines, as used in the national emission inventories, are based on measured emissions from standardised test runs, and are used for a bottom up estimate of the total national emissions, by estimating the number of kilometres the total national fleet have driven. This estimate is compared to an estimated emission calculated from the amount of gasoline and diesel sold nationally, and the difference between these two estimates leads to a correction factor for the total national emission.
-\begin{figure}[htbp]
+
+When using smartphones as mobile sensing devices, a number of different sensors can be used. In the following the builtin accelerometer and the global positioning sensor are considered. The accelerometer sensor, delivers a timestamped accelerometer measurement, consisting of a reading of the 3 axis accelerometer. The accelerometer is a very low power device and can thus be sampled quite frequently ( around 200 Hz ).
+
+The GPS measurements consists of longitude, latitude, altitude, speed, bearing, number of satellites visible, accuracy and a timestamp of the measurement. The GPS sensor contains a radio receiver, and complex logic to decode the radio signal and calculate the data, thus it uses more electric power. To reduce the power drain on the smartphone battery, the GPS can be turned off between readings of the position. 
+
+When calculating the distance travelled between two GPS measurements a Haversine function is used. This function takes the curvature of the earth into account, and therefore gives a more precise value for the distance. The resolution of the test data, does not warrant the use of the Haversine approach, but was chosen in anticipation on more crudely sampled GPS data, due to power conservation considerations.
+
+
+
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics{idle_henrik.png}
-\caption{{\bf default}}
+\caption{{\bf figure showing rotational speed of an cold engine. As the engine heats up the the engine speed lowers. The yellow colour indicates a larger power.}}
 \label{idle_henrik}
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
+
+
+The emission factors are estimated for 3 different driving patterns: Urban, with many stops and low speed. Road driving, with few stops and moderate speeds, and lastly highway, with no stops and high speed. These three modes of road traffic can be distinguished by analysing GPS.  
+\begin{figure}[!ht]
 \begin{center}
 \includegraphics{idle_BMW.png}
 \caption{{\bf default}}
@@ -108,11 +124,9 @@ The emission factors for combustion engines, as used in the national emission in
 \end{center}
 \end{figure}
 
-The emission factors are estimated for 3 different driving patterns: Urban, with many stops and low speed. Road driving, with few stops and moderate speeds, and lastly highway, with no stops and high speed. These three modes of road traffic can be distinguished by analysing GPS. The GPS datapoint contains data for timestamp, Latitude, Longitude, speed and accuracy. 
-
 To create a more accurate estimate of the emission for a single trip by car, a more complex model is proposed. From the sensed data it is possible to get information on the speed of the car at various points of the trip, and the number of stops and starts. This information can be used to further segment the trips into idle, accelerating, cruising and braking; each of these segments would have a different emission profile. 
 
-The data sensed from the smartphone can also be used to determine if the engine in the car is cold, if for instance it is the start of the trip. When the engine is cold the combustion is less effective and thus more emissions of Carbon Monoxide and Volatile Organic Compounds will be higher and the emission inventory should reflect that. The determination of the impact of cold starts, demands quite complex models, taking into account the temperature, models for engine warm up. 
+The data sensed from the smartphone can also be used to determine if the engine in the car is cold, if for instance it is the start of the trip. When the engine is cold the combustion is less effective and thus more emissions of Carbon Monoxide and Volatile Organic Compounds will be higher and the emission inventory should reflect that. The determination of the impact of cold starts, demands quite complex models, taking into account the outside temperature, models for engine warm up. 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics{emission_vs_speed.png}

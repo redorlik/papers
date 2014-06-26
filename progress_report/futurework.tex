@@ -19,6 +19,7 @@ Another input to the model could be the road grade, since the engine will have t
 
 \subsubsection{Emissions when decelerating}
 When decelerating, there are a couple of different situations to be ware of. The simplest situation is when the vehicle is braking using the mechanical brake. In this situation the engine will typically be in idle mode and the results from section \ref{Idle} can be reused. If the vehicle incorporate regenerative braking, motor braking or automatic transmission the situation is more complex. The proposal is to first ascertain if deceleration can be detected and then in an first approximation used the results from \ref{Idle}
+
 \subsubsection{Emissions when cruising}
 In the study of emission models, models for speed dependency of emissions have been found. These models can be used as is if we can determine that we are moving at a constant speed. These models are described in section \ref{Modelling}. The models are developed for emission modelling programs such as COPERT IV, which was developed as part of the EU project ARTEMIS. The models used in COPERT IV can be used to assign a speed dependent emission factor to specific vehicle types, engine sizes and fuel types.
  
@@ -28,29 +29,50 @@ A position paper on the state of the art of modelling emission from mobile sensi
 More specialised papers detailing and evaluating the improvements made in this study is also planned.
 
 \subsection{Correlation of trips}
-In order to be able to spot inefficiencies in transportation patterns, a way of group, aggregate and correlate different trips are needed. The grouping of trips could be by persons, time of day, seasonal or geographic. The aggregation could be looking for all trips at specific location in a certain time period. Correlation is useful for finding trips which follow a certain route.
+In order to be able to spot inefficiencies in transportation patterns, a way of group, aggregate and correlate different trips are needed. The grouping of trips could be by persons, time of day, seasonal or geographic. 
 
-In order to solve these problems efficiently, some heuristics may be useful. If a digital road network is available for the area under consideration, each trip can be converted into a subgraph of the  digital road network, under the assumption that vehicles travels along the roads. By having the trips as a graph instead of a time series of GPS locations, will simplify the task of correlation, thus good and efficient algorithms to convert GPS traces to road network graphs is needed.
+The aggregation could be looking for all trips at specific location in a certain time period. Correlation is useful for finding trips which follow a certain route.
+
+In order to solve these problems efficiently, some heuristics may be useful. If a digital road network is available for the area under consideration, each trip can be converted into a subgraph of the  digital road network, under the assumption that vehicles travels along the roads. By having the trips as a graph instead of a time series of GPS locations, will simplify the task of correlation, thus good and efficient algorithms to convert GPS traces to road network graphs is needed. The problem is the transformed in to a graph search problem, for which well understood algorithms exists.
+
 %\subsubsection{Methodology}
 \subsubsection{Impact}
+One of the envisioned impacts of this research is to enable a lightweight approach to managing the task of green accounting for transportation. By using the data from a company's smartphones a comprehensive and detailed picture of the emission profile of the company's transportation needs can be constructed. This can lead to better and more efficient use of the internal transportation, incentive programs for car sharing among the employees or other emission lowering activities, and thus lower the emissions of the company. As long as the emission profile is unknown or only known with a large uncertainty, it can be hard to find the areas, where a targeted effort will have the largest outcome, or even see the purpose of doing anything at all.
+
+Another possible impact of the phd study is in traffic planning. Today the traffic planning is based on counting of vehicles at specific points, done by laying out tubes on the road and counting the number of passages over the tube. In this work it is possible to tell not only, the count of vehicles at a specific point, but also where they are coming from and where they are going. This more detailed view of the traffic flow might give traffic planers a new tool to control the capacity of the traffic network or to find new opportunities for public transport.
 
 \subsubsection{Papers}
 A paper documenting the approach and detailing the possible benefits in terms of finding opportunities for minimising the emission of pollutants through better route planning. I will attend a course at DTU Transport during the autumn concerning "Route Choice Models", to prepare for this.
 \subsection{Field trials}
-Among the partners in the EcoSense project are some municipalities. The interest from the municipalities in the EcoSense project are among other, to be test sites for the results coming out of the project. In return the researcher partners get real world data to learn from in future research
+Among the partners in the EcoSense project are some municipalities. The interest from the municipalities in the EcoSense project are among other, to be test sites for the results coming out of the project. In return the research partners get real world data to exploit in future research.
 \subsubsection{S\o nderborg}
-In the municipality of S\o nderborg, there have been a long tradition for doing projects with focus to mitigate the threat of Climate Change through minimising the emission of climate forcing gasses. The task of finding ways of minimising the emission for S\o nderborg, has been put to an organisation called "Project Zero". "Project Zero initiates and run campaigns for raising the awareness of climate gas emissions, as well as measure the effects of these campaigns. "Project Zero" has campaigns that target citizens and other campaigns that target the local industry.
+In the municipality of S\o nderborg, there have been a long tradition for doing projects with focus to mitigate the threat of Climate Change through minimising the emission of climate forcing gasses. The task of finding ways of minimising the emission for S\o nderborg, has been put to an organisation called "Project Zero". "Project Zero" initiates and run campaigns for raising the awareness of climate gas emissions, as well as measure the effects of these campaigns. "Project Zero" has campaigns that target citizens and other campaigns that target the local industry.
 
-As "Project Zero is a partner in EcoSense, we have the possibility to make mobile applications that underpin or are a part of the campaigns "Project Zero" runs. An interesting experiment could be measure the air pollution at the central bridge over Als-sund, and compare with the danish city canyon model OSPM, and traffic data obtained from mobile sensing.
+As "Project Zero" is a partner in EcoSense, we have the possibility to make mobile applications that underpin or are a part of the campaigns "Project Zero" runs. An interesting experiment could be measure the air pollution at the central bridge over Als-sund, and compare with the danish city canyon model OSPM, and traffic data obtained from mobile sensing.
 
 \subsubsection{Herning}
-In Herning a project called "Herning cycler til m\aa nen", Herning bikes to the moon. The goal of the project is to get the citizens of the municipality to bike the distance to the moon. To measure the distance travelled on bike, participants can download an mobile application, developed in the EcoSense project. The app sends data to the EcoSense servers, and we thus get the possibility to look into real world transportation.
+In Herning a project called "Herning cycler til m\aa nen", Herning bikes to the moon. The goal of the project is to get the citizens of the municipality to bike the distance to the moon. To measure the distance travelled on bike, participants can download an mobile application, developed in the EcoSense project. The app sends data to the EcoSense servers, and we thus get the possibility to look into real world transportation. The application will log the data for all transportation, not only cycling, but the cycling data will be filtered out to serve the goal of the application. 
 
+For research purposes we can see if we can find patterns in the traffic (both bicycle and automobile), although the data will be biased towards people who use bikes. To get information on congestion in traffic it seems that you only need a very small sample of the total number of vehicles \ref{}, so even if the data is biased towards bicycle users, there might still be opportunities for inters tin discoveries.
+
+The data obtained from the experiment, can be converted into input data to the pollution modelling program OSPM, to estimate the pollution level at different points in the city. These pollution estimates can then be tested by actual measurement. If combined with traffic count data, done by ordinary methods comparisons and validation of the approach can appraised.
+
+Another opportunity for discovery in this data set is concerning bicycle paths. Herning contains many bicycle paths and bicycle lanes. The data might be able to tell the municipality which bicycle path are used and which use patterns.
+
+Further experiments that can be conducted is to perform surveys of the users of the application since an email address is needed to enable the application.
+
+\subsubsection{Elbil parat}
+
+EcoSense is conducting a small pilot project with its partner Ensero Business Solutions. By downloading an EcoSense made application, people with an interest in trying a electric vehicle can get a picture of their daily transportation need. This can help the volunteer to see which part of their daily transportation could be performed by an electric car, and which part should be covered by other forms of transportation. When the transportation need has been analysed, the volunteers has the opportunity to lend an electric vehicle for a limited period.
+
+The data gained from this experiment, is probably biased towards people interested in electric vehicles, but it is not clear if the traffic needs of this group of people is significantly different from other groups. Of course the people that lend an electric vehicle will have needs that can be served by a small electric vehicle.
 
 
 \subsubsection{Papers}
-It would be reasonable to document the results of this real world (or at least outside the laboratory) trials in a number of papers. Each trial has different goals but share a number of tools.
+It would be reasonable to document the results of this real world (or at least outside the laboratory) trials in a number of papers. Each trial has different goals but share a number of methods. It seems reasonable to expect at least one paper for each facet of each of the trials. The danger here is that only the Herning trial has started with only a small number of participants. It is expected that further promotion of the project by the municipality will increase the attendance of people in the project, but it is still unknown if a reasonable number of participant will get involved and use the app, so that interesting data con be obtained.
 
-These papers would be evaluating the approach.
+For the S\o nderborg trial the scope of the trial and design for the application has not been specified yet, so it is not known if the trial can produce interesting data within this phd study.
+
+
 \subsection{Visiting researcher}
 During the last 2 years of the study I plan to visit an university, to participate in the research as it is performed there. I plan to have the stay at another research group during the teaching free period in the summer of 2015. I am currently actively looking for suitable research groups in other transportation research, air pollution modelling or geographic data research.
