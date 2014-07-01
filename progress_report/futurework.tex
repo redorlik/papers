@@ -1,8 +1,18 @@
 \section{Future Research}\label{futurework}
 In this section the planned work for the remainder of the phd study will be discussed. The focus of the section is the planned scientific contributions.
 
+\subsection{Hypotheses}
+\begin{enumerate}
+	\item{Idle mode of passenger cars can be robustly detected by using mobile sensing}
+	\item{Cruising of passenger cars can be robustly detected by using mobile sensing}
+	\item{Acceleration and deceleration can be robustly detected by using mobile sensing}
+	\item{Single trip estimation of airborne pollutants can be made more accurately than IPCC methodology}
+	\item{Correlation of multiple trips by different facets (time, location, transport mode) can improve transport planning}
+	\item{Trustworthy estimation of emissions of pollutants is important for green accounting}
+	\item{Models for pollutants dispersion can be improved by adding new chemical reactions, effects of surrounding structures (buildings, tunnels) and more precise emission estimates}
+\end{enumerate}
 \subsection{Improving estimation of emissions for single trips}
-As outlined in section \ref{Modelling}, the current modelling focus is to create and maintain national inventories, which leads to a focus on mean values for emission factors, driving patterns and trip patterns. To be able to provide personalised information on specific transportation behaviour, there is a need to provide more detailed models for the emission of single trips. In this section an outline for possible algorithms for reaching that goal is presented.
+As outlined in section \ref{modelling}, the current modelling focus is to create and maintain national inventories, which leads to a focus on mean values for emission factors, driving patterns and trip patterns. To be able to provide personalised information on specific transportation behaviour, there is a need to provide more detailed models for the emission of single trips. In this section an outline for possible algorithms for reaching that goal is presented.
 
 One proposal is to divide a trip into four different types of driving : Idle, accelerate, cruise and decelerate. For each type of driving a emission profile can be derived and thus the emission for each type can be determined. To total emission for a trip can then be determined as the sum of the emission for each type.
 
@@ -15,13 +25,13 @@ When the gravity direction has been determined, the horizontal acceleration will
 
 To model the emission from an accelerating vehicle information, such as engine size and vehicle weight, is needed. This information has to be given as input to the model by the user, or be inferred from the Transportation Mode Detection part of EcoSense.
 
-Another input to the model could be the road grade, since the engine will have to work harder, thus emitting more pollutants, if the vehicle is going uphill. By using the GPS data to get information on the position, the road grade can be gleaned from a digital road network. By fusing the information from these different sources the emission modelling  can be further improved.  
+Another input to the model could be the road grade, since the engine will have to work harder, thus emitting more pollutants, if the vehicle is going uphill \cite{kaul2013}. By using the GPS data to get information on the position, the road grade can be gleaned from a digital road network. By fusing the information from these different sources the emission modelling  can be further improved.  
 
 \subsubsection{Emissions when decelerating}
 When decelerating, there are a couple of different situations to be ware of. The simplest situation is when the vehicle is braking using the mechanical brake. In this situation the engine will typically be in idle mode and the results from section \ref{Idle} can be reused. If the vehicle incorporate regenerative braking, motor braking or automatic transmission the situation is more complex. The proposal is to first ascertain if deceleration can be detected and then in an first approximation used the results from \ref{Idle}
 
 \subsubsection{Emissions when cruising}
-In the study of emission models, models for speed dependency of emissions have been found. These models can be used as is if we can determine that we are moving at a constant speed. These models are described in section \ref{Modelling}. The models are developed for emission modelling programs such as COPERT IV, which was developed as part of the EU project ARTEMIS. The models used in COPERT IV can be used to assign a speed dependent emission factor to specific vehicle types, engine sizes and fuel types.
+In the study of emission models, models for speed dependency of emissions have been found. These models can be used as is if we can determine that we are moving at a constant speed. These models are described in section \ref{modelling}. The models are developed for emission modelling programs such as COPERT IV, which was developed as part of the EU project ARTEMIS. The models used in COPERT IV can be used to assign a speed dependent emission factor to specific vehicle types, engine sizes and fuel types.
  
 \subsubsection{Papers}
 A position paper on the state of the art of modelling emission from mobile sensing is planned.
@@ -33,31 +43,33 @@ In order to be able to spot inefficiencies in transportation patterns, a way of 
 
 The aggregation could be looking for all trips at specific location in a certain time period. Correlation is useful for finding trips which follow a certain route.
 
-In order to solve these problems efficiently, some heuristics may be useful. If a digital road network is available for the area under consideration, each trip can be converted into a subgraph of the  digital road network, under the assumption that vehicles travels along the roads. By having the trips as a graph instead of a time series of GPS locations, will simplify the task of correlation, thus good and efficient algorithms to convert GPS traces to road network graphs is needed. The problem is the transformed in to a graph search problem, for which well understood algorithms exists.
+In order to solve these problems efficiently, some heuristics may be useful. If a digital road network is available for the area under consideration, each trip can be converted into a subgraph of the  digital road network, under the assumption that vehicles travels along the roads. By having the trips as a graph instead of a time series of GPS locations, will simplify the task of correlation, thus good and efficient algorithms to convert GPS traces to road network graphs is needed. The problem is then transformed in to a graph search problem, for which well understood algorithms exists.
 
+\subsection{Improve dispersion models}
+The modelling done in program like DASK and OSPM  XXX
 %\subsubsection{Methodology}
-\subsubsection{Impact}
+\subsection{Impact}
 One of the envisioned impacts of this research is to enable a lightweight approach to managing the task of green accounting for transportation. By using the data from a company's smartphones a comprehensive and detailed picture of the emission profile of the company's transportation needs can be constructed. This can lead to better and more efficient use of the internal transportation, incentive programs for car sharing among the employees or other emission lowering activities, and thus lower the emissions of the company. As long as the emission profile is unknown or only known with a large uncertainty, it can be hard to find the areas, where a targeted effort will have the largest outcome, or even see the purpose of doing anything at all.
 
-Another possible impact of the phd study is in traffic planning. Today the traffic planning is based on counting of vehicles at specific points, done by laying out tubes on the road and counting the number of passages over the tube. In this work it is possible to tell not only, the count of vehicles at a specific point, but also where they are coming from and where they are going. This more detailed view of the traffic flow might give traffic planers a new tool to control the capacity of the traffic network or to find new opportunities for public transport.
+Another possible impact of the phd study is in traffic planning. Today the traffic planning is based on counting of vehicles at specific points, done by laying out tubes on the road and counting the number of passages over the tube. In this work it is possible to tell not only the count of vehicles at a specific point, but also where they are coming from and where they are going. This more detailed view of the traffic flow might give traffic planers a new tool to control the capacity of the traffic network or to find new opportunities for public transport, as in \cite{Berlingerio2013} where phone call records are used to track mobility and guide planning of bus routes.
 
 \subsubsection{Papers}
 A paper documenting the approach and detailing the possible benefits in terms of finding opportunities for minimising the emission of pollutants through better route planning. I will attend a course at DTU Transport during the autumn concerning "Route Choice Models", to prepare for this.
 \subsection{Field trials}
 Among the partners in the EcoSense project are some municipalities. The interest from the municipalities in the EcoSense project are among other, to be test sites for the results coming out of the project. In return the research partners get real world data to exploit in future research.
 \subsubsection{S\o nderborg}
-In the municipality of S\o nderborg, there have been a long tradition for doing projects with focus to mitigate the threat of Climate Change through minimising the emission of climate forcing gasses. The task of finding ways of minimising the emission for S\o nderborg, has been put to an organisation called "Project Zero". "Project Zero" initiates and run campaigns for raising the awareness of climate gas emissions, as well as measure the effects of these campaigns. "Project Zero" has campaigns that target citizens and other campaigns that target the local industry.
+In the municipality of S\o nderborg, there has been a long tradition for doing projects with focus to mitigate the threat of Climate Change through minimising the emission of climate forcing gasses. The task of finding ways of minimising the emission for S\o nderborg, has been put to an organisation called "Project Zero". "Project Zero" initiates and run campaigns for raising the awareness of climate gas emissions, as well as measure the effects of these campaigns. "Project Zero" has campaigns that target citizens and other campaigns that target the local industry.
 
-As "Project Zero" is a partner in EcoSense, we have the possibility to make mobile applications that underpin or are a part of the campaigns "Project Zero" runs. An interesting experiment could be measure the air pollution at the central bridge over Als-sund, and compare with the danish city canyon model OSPM, and traffic data obtained from mobile sensing.
+As "Project Zero" is a partner in EcoSense, we have the possibility to make mobile applications that underpin or are a part of the campaigns "Project Zero" runs. An interesting experiment could be to measure the air pollution at the central bridge over Als-sund, and compare with the danish street canyon model OSPM, and traffic data obtained from mobile sensing.
 
 \subsubsection{Herning}
-In Herning a project called "Herning cycler til m\aa nen", Herning bikes to the moon. The goal of the project is to get the citizens of the municipality to bike the distance to the moon. To measure the distance travelled on bike, participants can download an mobile application, developed in the EcoSense project. The app sends data to the EcoSense servers, and we thus get the possibility to look into real world transportation. The application will log the data for all transportation, not only cycling, but the cycling data will be filtered out to serve the goal of the application. 
+In Herning there is a project called "Herning cykler til m\aa nen", Herning bikes to the moon. The goal of the project is to get the citizens of the municipality to bike the distance to the moon. To measure the distance travelled on bike, participants can download an mobile application, developed in the EcoSense project. The app sends data to the EcoSense servers, and we thus get the possibility to look into real world transportation. The application will log the data for all transportation, not only for cycling, but the cycling data will be filtered out to serve the goal of the application. 
 
-For research purposes we can see if we can find patterns in the traffic (both bicycle and automobile), although the data will be biased towards people who use bikes. To get information on congestion in traffic it seems that you only need a very small sample of the total number of vehicles \ref{}, so even if the data is biased towards bicycle users, there might still be opportunities for inters tin discoveries.
+For research purposes we can see if we can find patterns in the traffic (both bicycle and automobile), although the data will be biased towards people who use bikes. To get information on congestion in traffic it seems that you only need a very small sample of the total number of vehicles \cite{Herrera2010}, so even if the data is biased towards bicycle users, there might still be opportunities for interesting discoveries.
 
-The data obtained from the experiment, can be converted into input data to the pollution modelling program OSPM, to estimate the pollution level at different points in the city. These pollution estimates can then be tested by actual measurement. If combined with traffic count data, done by ordinary methods comparisons and validation of the approach can appraised.
+The data obtained from the experiment, can be converted into input data to the pollution modelling program OSPM, to estimate the pollution level at different points in the city. These pollution estimates can then be evaluated by actual measurement. If combined with traffic count data, done by ordinary methods, comparisons and validation of the approach can be appraised.
 
-Another opportunity for discovery in this data set is concerning bicycle paths. Herning contains many bicycle paths and bicycle lanes. The data might be able to tell the municipality which bicycle path are used and which use patterns.
+Another opportunity for discovery in this data set is concerning bicycle paths. Herning contains many bicycle paths and bicycle lanes. From the data we might be able to tell the municipality which bicycle paths are used and create the data to visualise the use patterns.
 
 Further experiments that can be conducted is to perform surveys of the users of the application since an email address is needed to enable the application.
 

@@ -1,9 +1,32 @@
-\section{Internet of Things}
-The vision of Internet of Things is to connect devices, across application, geographic and company boundaries. To accomplish this vision, a common language and framework had to be agreed upon. Tim Berners-Lee started this work by creating the Resource Description framework (RDF) in ????. The definition of have spurred the creation of query languages (SPARQL), semantic frameworks (OWL, SKOS), IDE (Prot\'eg\'e, TopBraid composer) and implementations (SESAME, Virtuoso, Talis, RDFLIB ).
+\section{Internet of Things}\label{IoT}
+The vision of Internet of Things is to connect devices, across application, geographic and company boundaries. To accomplish this vision, a common language and framework had to be agreed upon. The World Wide Web Consortium (W3C) created the Resource Description framework (RDF) in 1999. The definition of RDF have spurred the creation of query languages (SPARQL), semantic frameworks (OWL, SKOS), IDE (Prot\'eg\'e, TopBraid composer) and implementations specialised RDF capable databases and frameworks (SESAME, Virtuoso, Talis, RDFLIB ).
+
+\alnote{Write about relevance to EcoSense}
+\alnote{Write about Karibu and data path \cite{b4d2db1acd954f4e964ef692ee5a2cce} }
+
 
 \subsection{Linked Data}
+The main idea in Linked data is that every data element has an URI (Universal Resource Identifier) \cite{rfc23961998uniform}, so that in principle each data element can be looked up via the internet. URI's does not have to be dereferenceable though, as the main purpose is to be identifiers of data. 
+
+The second idea is to use a simple, but expressive, data representation and modelling language. RDF is deceptively simple at first look. The data is modelled as a graph. The nodes in the graph are date resources (with URI's), and the edges are described with triples of subject (left node), predicate (the type of edge) and object (the right node).
+
+The complexity arises from the idea that the modelled data should be consistent under the semantics, given by the semantics of the predicates and the semantics of the types system defined for literals. One of the critiques of RDF is that is possible, and even easy, to create inconsistencies when modelling data. The answer from the RDF proponents is that the restrictions put on the semantics to ensure consistency, is too restrictive and makes the data modelling hard and unnatural, and also does not offer others qualities as decidability (there are certain versions that do offer decidability, but others do not).	
 
 \subsection{Semantic annotated data}
+To alleviate the problem of not guarantying consistency, an extension to RDF has been proposed. The Web Ontology Language (OWL) was conceived to add subject, predicates and object types with defined and consistent semantics, so as to enable inference on data modelled with OWL. Inference is the ability so learn new facts from the available data and a data model. OWL is now in version to, which has tried bridge the gap to the RDF proponents by defining a number of profiles, with different tradeoffs between modelling flexibility, decidability and performance.	
 \subsection{Linked Devices}
+For sensor devices specialised protocols for accessing and delivering data, has been developed. The Semantic Sensor Network (SSN) proposed a way to semantically annotate sensors in a sensor network using OWL. One of the remaining problems for SSN is to find ways to cooperate with the Open Geospatial Consortium (OGC) and their Sensor Web Enablement (SWE), which is more focused on XML representations i.e. Sensor Oberservation Service (SOS) \cite{Henson2009}, a proposal for sensors as service endpoints, the Sensor Model Language (SensorML) \cite{russomanno2005}, and a host of other protocols.
 \subsection{Linked Data as an Enterprise Architecture strategy}
+In the previous sections we saw that it was possible to link devices and create applications utilising the linked data both from sensors, stationary or mobile, and big existing linked data archives. In this section I will argue that the idea of using a flexible and standardised data description language, can be seen as an attempt to use ideas from Enterprise Architecture. One of the powerful ideas in Enterprise Architecture is to be able to align the IT development with the strategy of the business. To translate this idea into an research organisation, which can be compared to a virtual enterprise \cite{February1998}, strategy of the organisation is to be on one hand agile in order to be able to attract research funding, and on the other hand be able to reuse the tools for doing research. The tools for doing research are among others the datasets acquired, the literature for finding references, the laboratories, IT networks and databases. 
 
+One proposal taken from Enterprise architecture is to describe the situation as it is currently, with respect to IT resources, processes and knowledge, and then compare that with what can be envisioned in light of the business strategy. When the picture of the situation `as-is`, and the picture of what is needed in the `to-be` scenario, the task is to design the transition of the infrastructure and manpower into the `to-be` scenario.
+
+For the research organisation (as for the Business), it can be difficult to tell what the `to-be` scenario should be. But there are a few items, that can be trusted to be important over an extended period. The ability to access the datasets that the research organisation has collected, and the possibility of combining data from different datasets, could be an important focus point.
+
+Since semantic annotated data in the form of RDF or OWL, promises a standardised way of annotating data, where the semantics of the data is defined in the same language, it might be a basis for evolving research organisations by promoting reuse and cross functional research.
+
+\subsection{Scientific contributions}
+
+I coauthored a paper on testing of Semantic Services: "Test Driven Life Cycle Management for Internet of Things based Services : a Semantic Approach" \cite{Reetz}
+
+I am working on a paper for "Journal of Enterprise Architecture" with Torben Tambo, AU Herning, to appear Q4 2014.

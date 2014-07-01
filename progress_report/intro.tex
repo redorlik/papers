@@ -1,30 +1,57 @@
 \section{Introduction}
-During the last 40 years an overwhelming amount of evidence for Anthropogenic Global Warming has been gathered [9]. This evidence has led to international agreement on certain limits for the emission of gases that affect the global warming, most notably CO2. In order to reach these goals and keep the level of CO2 within the agreed limits, technological solutions need to be developed, partly to develop cleaner energy production technology, and partly to develop more energy efficient ways of living. Previously the focus has been on developing more efficient machines, under the assumption that the use patterns of the energy consuming machines were optimal.
+During the last 40 years an overwhelming amount of evidence for Anthropogenic Global Warming has been gathered \cite{schipper2008earthscan}. This evidence has led to international agreement on certain limits for the emission of gases that affect the global warming, most notably $CO_2$.  The gases that affect the climate through warming of the atmosphere, are commonly known as radiative forcing gases or climate forcing gases. In order to reach these goals and keep the level of $CO_2$ within the agreed limits, technological solutions need to be developed, partly to develop cleaner energy production technology, and partly to develop more energy efficient ways of living. Previously the focus has been on developing more efficient machines, under the assumption that the usage patterns of the energy consuming machines were optimal.
 
-The research project EcoSense is aimed at analysing user behaviours, and if possible give advice to change user behaviour to be more resource efficient.
+The research project EcoSense is aimed at analysing user behaviours, through the use of mobile sensing with smartphones, and if possible give advice to change user behaviour to be more resource efficient.
+EcoSense is not the only project trying to use mobile sensing \cite{mun_peir_2009} \cite{calabrese1977}.
 
-One driving goal for the project, is to be able to improve the accuracy and ease of use of green accounting for companies. Today it is a tedious and time-consuming task to estimate the amount of emissions a company is responsible for. One of the cumbersome areas of green accounting is with regard to emissions due to transport. There is a need for methods and models that will account for the actual emissions due to the day to day business of the company and not accounting done from mean values.
+\subsection{Problemstatement}
+One driving goal for the project, is to be able to improve the accuracy and ease of use of green accounting for companies. Today it is a tedious and time-consuming task to estimate the amount of emissions a company is responsible for. One of the cumbersome areas of green accounting is with regard to emissions due to transport. There is a need for methods and models that will account for the actual emissions due to the day to day business of the company and not accounting done from mean values. In the study the focus has been on passenger cars, since passenger cars is responsible for about 60\% of the emission of green house gases from transport in Denmark \cite{nielsen2014} 
+
+
+\subsection{Methodology}
+In the following I will discuss the methods used for estimating emission of climate forcing gases from transportation and proposals for improving these methods.
+
+As the study is inspired of a number of different fields, spanning from Climate Change policy over atmospheric chemistry to data science and signal analysis, I have adapted a number of different methods for solving the problems. 
+
+\subsubsection{Secondary research}
+To find suitable models for emissions of Climate forcing gases from traffic a number of emission accounting methodologies has been investigated through a systematic literature search and appraised for the suitability of the methods in the EcoSense project.
+
+\subsubsection{Data analysis}
+The data that is gathered from smartphones, is essentially timestamped values from the sensors in the phones. To analyse the data it is first converted into a time series format before a number of different methods are applied in order to find and present interesting patterns. For analysing GPS traces the distance travelled is calculated by applying an algorithm taking the curvature of the earth into account, thus employing methods from geometry.
+
+For analysing accelerometer data algorithms from signal analysis, are employed to extract  information on engine speed and vehicle activity.
+\subsubsection{Field trials}
+The models developed in the first part of the phd study are going to be applied to field trials in different cities in Denmark, through smartphone applications designed for each trial. The lessons that can be learned, and methods for conducting the field trials are further discussed in section \ref{futurework}.
+\subsection{Contributions}
+To get information on the emissions from a single trip in a passenger car, the most precise way would be to measure the emissions from the tailpipe \cite{Frey}. This is a bit impractical as it involves instrumenting the vehicle.
+
+As a more crude estimate, the methods from IPCC inventory guidelines can be used. These methods are designed to make the task of creating national climate forcing gas emission inventories, a practical endeavour. In between these to methods there is gap, which I will try to fill, without extra instrumentation of the vehicles.
 
 My contribution to the project is threefold:
-	1) to create and improve emission models for individual trips.
-	2) to create models for aggregation and correlations of multiple trips.
-	3) to improve models for the dispersion of emissions.
+\begin{enumerate}
+  	\item To create and improve emission models for individual trips.
+  	\item To create models for aggregation and correlations of multiple trips.
+  	\item To improve models for the dispersion of emissions.
+\end{enumerate}
 
 By succeeding in these goals the impact would be:
-	Improved accuracy of green accounting
-	Providing hints to increase efficiency of transportation
+\begin{enumerate}
+  	\item 	Improved accuracy of green accounting
+	\item		Providing hints to increase efficiency of transportation
+\end{enumerate}
 	
-In the first part of this report I will go through the work done so far in the study, and give a background to understand the methods used. Section \ref{politics} is an overview of the international institutions put into place the oversee and develop Climate Change policies. It is important to keep in mind that the problems of Climate Change mitigation and adaptation are global problems, thus has to be solved in an international setting.
+\subsection{Reading guide}
+In the first part of this report ( section \ref{politics} to section \ref{IoT} ) I will go through the related work I have found, and give a background to understand the methods used. The second part of the report is describing my contributions and my planned future work. 
 
-Section \ref{modelling} is describes the work done so far to understand and implement models for estimating the emission of climate forcing gasses from traffic. The methodology decided by IPCC is described and the way that the principles has been adopted to single trip estimation is elaborated.
+Section \ref{politics} is an overview of the international institutions put into place to oversee and develop Climate Change policies. It is important to keep in mind that the problems of Climate Change mitigation and adaptation are global problems, thus has to be solved in an international setting.
+
+Section \ref{modelling} describes the work done so far to understand and implement models for estimating the emission of climate forcing gases from traffic. The methodology decided by IPCC is described and the way that the principles has been adopted to single trip estimation is elaborated.
 
 Section \ref{dispersion} is about ways to model the movement of airborne pollutants. Originally these methods were developed for environmental planning purposes, but in this study it will be combined with the detailed knowledge of the emission pattern from traffic.
 
 Section \ref{IoT} concerns ways connecting and relating data from sensors on different devices.
 
+In the section \ref{contributions}, a description of the contributions made in the study.
+
 The section \ref{futurework} is a plan for the remaining period of the study.
 
-\alnote{More on EcoSense
-motivation
-Reading guide
-}
