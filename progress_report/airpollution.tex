@@ -1,37 +1,56 @@
 \section{Air pollution dispersion Modelling}\label{dispersion}
-This section gives an overview of different ways for calculation of how the concentration of pollutants change over time and space. Typically we investigate how pollutants move from a pollution source with wind or through diffusion through the area of interest. The concentrations of the species change partly by dilution (the plume widens), and partly by chemical reactions in the atmosphere. The chemical reactions are dependent on different factors, such as light and temperature. In the section on OSPM the effect of the landscape (here a street canyon) is discussed.
+This section gives an overview of different ways for calculation of how the concentration of pollutants change over time and space. Typically we investigate how pollutants move from a pollution source with wind or through diffusion through the area of interest, the general term used is advection. The concentrations of the species (each kind of pollutant is regarded as a specie) change partly by dilution (the plume widens), and partly by chemical reactions in the atmosphere. The chemical reactions are dependent on different factors, such as light and temperature. In the section on OSPM the effect of the landscape (here a street canyon) is discussed.
 
-\subsection{Euler method}
-The Euler method is also called the box model. The area that we want to investigate is divided into boxes. In at least one box there can should be a source of pollution. The concentration of the pollutants in the box can be calculated as the amount of the species coming into the box (either through the walls of the box, from chemical reactions or from sources located inside the box) minus the amount of the species lost (through the walls, deposition or chemical reactions).
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[totalheight=0.4\textheight]{scales.png}
+\caption{{\bf Different contributions to air pollution.\cite{Jensen}.}}
+\label{scales}
+\end{center}
+\end{figure}
 
-For each time step the concentration of each specie is calculated by solving an ordinary differential equation (ODE) and the calculated concentrations are use to determine the start conditions for the next time step, as well as the boundary conditions for the surrounding boxes.
+To model the concentration of pollutants at a specific place, the researcher has to consider the different sources of the pollution as pollution is transported of wide ranges. To model the long range transport of pollutants coarse models are used. This will contribute with a regional background pollution concentration. For a city more fine grained models (Urban Background Models) are used to calculate the contribution from the city, which leads to calculation of a city increment of emissions over the regional background concentration. And when street level pollution are the target of the calculation, a model for the pollution contribution and distribution for the street is needed, which considers local emissions and local conditions to calculate the street level increment combated to the regional background concentrations and urban background concentrations (see figure \ref{scales}).
 
-Examples of box models are Danish Eulerian Hemisphere Model (DEHM), which calculates concentration of 63 different species and 120 chemical reactions in different scales (size of boxes).
+
+\subsection{Eulerian method}
+The Eulerian method is also called a grid model. For the area that we want to investigate, the volume of air above the area, is divided into boxes. In at least one box there should be a source of pollution. The concentration of the pollutants in the box can be calculated as the amount of the species coming into the box (either through the walls of the box, from chemical reactions or from sources located inside the box) minus the amount of the species lost (through the walls, by deposition or by chemical reactions).
+
+For each time step the concentration of each specie is calculated by solving an ordinary differential equation (ODE) and the calculated concentrations are use to determine the start conditions for the next time step, as well as the boundary conditions for the surrounding boxes \cite{zlatev1995computer}.
+
+Examples of grid models are Danish Eulerian Hemisphere Model (DEHM)\cite{christensen1997}, which calculates concentration of 63 different species and 120 chemical reactions in different scales (size of a single grid) (150 km x 150 km, 50 km x 50 km and 17 km x 17 km)  \cite{frohm2002}.
 
 \subsection{Lagrange}
-In the Lagrange method a parcel of air is considered. The movement of the parcel is simulated by considering the local meteorological conditions, and the statistical mechanics of the particles in the parcel. By simulating many traces of parcels the advection of the pollutants from a source can be visualised. In this method for calculating the advection of pollution the observer follows the advection from the perspective of the pollution, instead of from a fixed position.
+In the Lagrange method a parcel of air is considered. The movement of the parcel is simulated by considering the local meteorological conditions, and the statistical mechanics of the particles in the parcel. By simulating many traces of parcels the advection of the pollutants from a source can be visualised. In this method for calculating the advection of pollution the observer follows the advection from the perspective of the pollution, instead of from a fixed position \cite{seinfeld1997atmospheric}. Inside the parcel the reactions of the gases are modelled while the parcel is moving. 
 
-\subsection{Atmospheric chemistry}
-An important complicating factor of modelling concentration of pollution is the fact that the different pollutants will undergo change due to chemical reactions
-
-\alnote{Is particulate matter modelled in the above mentioned models?}
+The modelling can also be performed backwards to ascertain where the air pollution at a given position is originating from.
 
 
-\subsection{DASK}
-DAnish Solver for chemical Kinetic (DASK) is a chemical compiler and solver. The idea of DASK is to automate the code generation for handling chemical reactions. In DASK you give the chemical reactions and their reaction rates as input, and the program transforms the input into fortran code.  
+\subsection{DASK-GAS}
+DAnish Solver for chemical Kinetic - Gear, Analysis, Solver (DASK-GAS) \footnote{unpublished solver from Prof. Allan Gross} is a chemical compiler and solver. The idea of DASK is to automate the code generation for handling chemical reactions. In DASK you give the chemical reactions and their reaction rates as input, and the program transforms the input into fortran code.  
 
-The reactions are given as the chemical compound names in a reaction schema, input reagents on the left side and resulting compounds on the right side. The temperature dependency of the reaction rate is given as a Fortran function, and if the reaction is driven by photolysis it is marked in the data file. For each of the reactions Fortran code is generated to calculate loss and gain of the species. The generated Fortran code is called inside the ODE solver, so that it is easy to add new chemistry.
+The reactions are given as the chemical compound names in a reaction schema, input reagents on the left side and resulting compounds on the right side. The temperature dependency of the reaction rate is given as a Fortran function, and if the reaction is driven by photolysis it is marked in the data file. For each of the reactions Fortran code is generated to calculate loss and gain of the species. The generated Fortran code is called inside the ODE solver, so that it is easy to add new chemistry \cite{hertel1993}.
 
-Beside the chemical compiler, there is also an easy way of setting up scenarios for the solver to solve. 
+The setup of the chemical reactions used in the simulation is called a mechanism, a number of standardised mechanism exist, such as European Monitoring and Evaluation Programme,EMEP, Regional Atmospheric Chemistry Mechanism, RACM and Regional Acid Deposition Model Mechanism, RADM2 \cite{Gross2003}.
+
+Beside the chemical compiler, there is also an easy way of setting up scenarios for the solver to model. 
 
 The specification of photolysis takes into account the amount of sunlight available in the period and place which is simulated. This is done by listing values for the sunlight for each time interval within the simulation period in a separate data file.
 
 \subsection{OSPM}
-The Operational Street Pollution Model is a model for calculation of pollution in urban environments. Due to turbulent wind conditions in urban street canyons the pollutants do not mix well with the surrounding air, there will be a tendency to have the heavier pollutants to concentrate on leeward side of the street canyon. The OSPM model considers the effects of street geometry, wind speed, emission factors and atmospheric chemistry (i.e. the $NO - NO_2 - O_3$ cycle).
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[totalheight=0.4\textheight]{canyon.png}
+\caption{{\bf Street canyon model. The turbulence drives pollution towards the leeward side of the street\protect\footnotemark.}}
+\label{canyon}
+\end{center}
+\end{figure}
+
+\footnotetext{http://www.au.dk/ospm}
+The Operational Street Pollution Model \footnote{http://envs.au.dk/videnudveksling/luft/model/ospm/} is a model for calculation of pollution in urban environments. Due to turbulent wind conditions in urban street canyons the pollutants do not mix well with the surrounding air, there will be a tendency to have the heavier pollutants to concentrate on leeward side of the street canyon (see figure \ref{canyon}). The OSPM model considers the effects of street geometry, wind speed, emission factors and atmospheric chemistry (i.e. the $NO - NO_2 - O_3$ cycle), as well as meteorological data, and background pollution stemming city contributions and from regional background due to long range air transport. The COPERT IV model for activity based emission models is builtin to OSPM, as an example of the extensive data used to model the street level pollution concentrations.
 
 To use the program, detailed information on the geometry of the street and surroundings has to be given. The height of the surrounding buildings, the angle of the street with respect to the wind and the distance to intersections of street corners has to be input to the program.
 
-The program uses emission data for background concentrations from European Monitoring and Evaluation Programme (EMEP) XXX, as input , but actual traffic volume for the considered street has to be given.
+The program uses emission data for background concentrations from European Monitoring and Evaluation Programme (EMEP) , as input , but actual traffic volume for the considered street has to be given \cite{berkowicz2000ospm}.
 
 
 

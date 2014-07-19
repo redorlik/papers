@@ -1,0 +1,39 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Climate change policy development}{2}
+\contentsline {subsection}{\numberline {2.1}Climate change organisations}{2}
+\contentsline {subsection}{\numberline {2.2}Climate change mitigation}{2}
+\contentsline {subsection}{\numberline {2.3}Climate change adaptation}{2}
+\contentsline {section}{\numberline {3}$CO_2$ Modelling}{3}
+\contentsline {subsection}{\numberline {3.1}Simple emission model}{3}
+\contentsline {subsection}{\numberline {3.2}IPCC methodology}{3}
+\contentsline {subsubsection}{\numberline {3.2.1}IPCC Tier 1 model}{5}
+\contentsline {subsubsection}{\numberline {3.2.2}IPCC Tier 2 model}{5}
+\contentsline {subsubsection}{\numberline {3.2.3}IPCC Tier 3 model}{6}
+\contentsline {subsection}{\numberline {3.3}Modelling emissions from electric vehicles}{6}
+\contentsline {subsection}{\numberline {3.4}Implementation}{6}
+\contentsline {subsubsection}{\numberline {3.4.1}Determine engine revolutions}{9}
+\contentsline {subsubsection}{\numberline {3.4.2}Determine acceleration and turning}{11}
+\contentsline {subsubsection}{\numberline {3.4.3}Combine turning information with GPS}{11}
+\contentsline {section}{\numberline {4}Air pollution dispersion Modelling}{12}
+\contentsline {section}{\numberline {5}Internet of Things}{13}
+\contentsline {subsection}{\numberline {5.1}Linked Data}{13}
+\contentsline {subsection}{\numberline {5.2}Semantic annotated data}{13}
+\contentsline {subsection}{\numberline {5.3}Linked Devices}{13}
+\contentsline {subsection}{\numberline {5.4}Linked Data as an Enterprise Architecture strategy}{13}
+\contentsline {section}{\numberline {6}Future Research}{14}
+\contentsline {subsection}{\numberline {6.1}Improving estimation of emissions for single trips}{14}
+\contentsline {subsubsection}{\numberline {6.1.1}Idle emissions}{14}
+\contentsline {subsubsection}{\numberline {6.1.2}Emissions when accelerating}{14}
+\contentsline {subsubsection}{\numberline {6.1.3}Emissions when decelerating}{15}
+\contentsline {subsubsection}{\numberline {6.1.4}Emissions when cruising}{15}
+\contentsline {subsubsection}{\numberline {6.1.5}Papers}{15}
+\contentsline {subsection}{\numberline {6.2}Correlation of trips}{15}
+\contentsline {subsubsection}{\numberline {6.2.1}Impact}{16}
+\contentsline {subsubsection}{\numberline {6.2.2}Papers}{16}
+\contentsline {subsection}{\numberline {6.3}Field trials}{16}
+\contentsline {subsubsection}{\numberline {6.3.1}S\o nderborg}{16}
+\contentsline {subsubsection}{\numberline {6.3.2}Herning}{16}
+\contentsline {subsubsection}{\numberline {6.3.3}Papers}{16}
+\contentsline {subsection}{\numberline {6.4}Visiting researcher}{16}
+\contentsline {section}{\numberline {7}Conclusion}{17}
+\contentsline {section}{Acknowledgement}{17}

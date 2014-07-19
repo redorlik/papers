@@ -1,4 +1,4 @@
-\documentclass[12pt]{scrartcl}
+\documentclass[11pt]{scrartcl}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
+%\usepackage[margin=1.5in]{fullpage}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 %\usepackage{}
 \usepackage{color}
@@ -14,8 +15,8 @@
 \newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[Todo: #1]}}}}
 % Macro for writing in the margin comments on what is left to be done.
 \newif\ifdraft
-               \drafttrue
-               %\draftfalse
+               %\drafttrue
+               \draftfalse
 \ifdraft
 \newcounter{ournotecounter}
 \newcommand{\ournote}[1]{%
@@ -29,7 +30,7 @@
 \typeout{Compiling in final mode.}
 \fi
 
-\title{Modelling Emission of Climate gases from transportation }
+\title{Modelling Emission of Pollutants from transportation }
 \subtitle{Using mobile sensing data}
 \author{Anders Lehmann}
 \date{July 2014}                                           % Activate to display a given date or no date
@@ -55,6 +56,7 @@
 \include{futurework}
 \include{conclusion}
 \newpage
+\pagenumbering{gobble}	
 \bibliographystyle{abbrv}
 \bibliography{Progressreport}
 \end{document}  
