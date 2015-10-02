@@ -1,6 +1,11 @@
 \section{Experiment}
-An accurate model for Carbon emission from transport, can be derived from an accurate model of fuel consumption of vehicles, since the Carbon emissions are related to the combustion of fuel. 
-To get a baseline for the fuel consumtption model, an experiment was performed. Data from a smartphone was combined with accurate measurements of fuel consumption. 
+An accurate model for Carbon emission from transport, can be derived from an accurate model of fuel consumption of vehicles, since the Carbon emissions are related to the combustion of fuel. The relation between fuel consumption and carbon dioxide is based on the assumption of perfect combustion, where all available carbo in the fuel is converted to carbon dioxide. The equation \ref{emission} gives the emission $E$ in grams for the fuel consumption $FC$ also in grams. The coefficients $r_{H:C}$ and $r_{O:C}$ are the ratio between hydrogen and carbon, and   oxygen and carbon, respectably in the fuel. The numbers in the equation are the molar weigths of the carbon dioxide $(44.011)$, oxygen $()$, carbon $()$, and hydrogen $(1.008)$
+
+\begin{equation}
+     E = \frac{44.011}{12.011+1.008 r_{H:C}+16.000 r_{O:C}} FC
+     \label{emission}
+\end{equation}
+To get a baseline for the fuel consumption model, an experiment was performed. Data from a smartphone was combined with accurate measurements of fuel consumption. 
 
 Researchers have reported fuel consumption measurements by instrumenting the vehicles with flow gauges in the fuel line. These measurements allow for realtime measurements of the fuel consumption. For this experiment flow meters were not available, nor was it possible to instrument the cars. Instead an elaborate measurement procedure was developed to attain accurate fuel consumption measurements.
 

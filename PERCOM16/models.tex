@@ -4,9 +4,7 @@ To model the Carbon emissions from single vehicle trips, the fuel consumption is
 
 The data received from smartphones comes from a variety of sensors. For this experiment we used the accelerometer and GPS sensors. From the GPS sensor information on speed, heading and location is obtained, and from the accelerometer the size and direction of acceleration is gathered.
 
-\subsection{National Emission model}
-
-Development and yearly reporting of national emission inventories was agreed on in the terms of the Kyoto protocol. This has led to the development of rigorous models and protocols for reporting the total national emission. To be able to make detailed reports of the transportation related emissions the COPERT \cite{Mellios2011} \footnote{http://emisia.com/copert}program was developed as a European transport emission model.
+\subsection{Method from National Emission model}
 
 In the COPERT IV emission modelling program, emission from warm combustion engines is modelled from the speed of the vehicle. As an example the emission $CO_2$ is modelled by modelling the fuel consumption of the vehicle, since the $CO_2$ emission is directly linked to the amount of fuel burned in the engine. Equation \ref{emission} is an example of how COPERT IV models the fuel consumption of a petrol driven passenger car as a function of the speed of the vehicle \cite{Ntziachristos2012}. There is a similar equation covering the fuel consumption of diesel cars. The constants $a-e$ are found by testing and differs by car type, engine size, year of manufacturing, and regulation. The COPERT IV program uses mean values for all tested vehicles within a particular class of vehicles.
 

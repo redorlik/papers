@@ -1,4 +1,4 @@
-\documentclass[10pt,conference,compsoc]{IEEEtran}
+\documentclass[conference,compsoc]{IEEEtran}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -58,16 +58,22 @@ Email: agr@auhe.au.dk}
 \begin{document}
 \maketitle
 \begin{abstract}
-Carbon dioxide emission from transport constitutes a large, and growing, part of the total carbon emissions. We present a model to estimate carbon dioxide emissions from passenger cars by using GPS data and accelerometer date gathered from smartphone apps. The model will enable a more detailed emission inventory, both in terms of location and time. As part of an experiment to establish ground truth, a method for measuring fuel consumption without instrumenting vehicles is presented. A method for discerning between different driving modes is presented, using the K-means clustering method.
+Carbon dioxide emission from transport constitutes a large, and growing, part of the total carbon emissions. We present a model to estimate carbon dioxide emissions from passenger cars by using GPS data and accelerometer date gathered from smartphone apps. The model will enable a more detailed emission inventory, both in terms of location and time. As part of an experiment to establish ground truth, a method for measuring fuel consumption without instrumenting vehicles is presented. A method for discerning between different driving modes is presented, using the K-means clustering method. This method will increase the accuracy of the emission model by estimation of increased fuel consumption while accelerating and decreased fuel consumption while braking, as well as estimate idle time.
 
 \end{abstract}
 \pagenumbering{arabic}	
+\todo{fix figures, legends labels, axis}
 
+\todo{niels kommentarer}
+\todo{Henriks kommentarer}
+\todo{conclusion futurework acceleration}
+\todo {models mention kmeans}
+\todo{results more in kmeans, relation to emissions}
 \input{intro}
 \input{related}
 %\input{mobilesensing}
 %\input{emission_models}
-%\input{}
+\input{hypoteser}
 \input{experiment}
 \input{models}
 \input{results}
