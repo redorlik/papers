@@ -7,7 +7,8 @@ usable data from 20 test runs. In the processing of data it became apparent that
 
 
 \begin{figure}[h]
-  \includegraphics[scale=0.5]{Measured_consumption}
+	\centering
+	\includegraphics[width=0.45\textwidth]{Measured_consumption}
   \caption{The measurement using the pump meter is quite unreliable}
   \label{measured}
 \end{figure}
@@ -19,7 +20,8 @@ The modelled fuel consumption from the test has a mean value of 1.32 liters, and
 An example speed curve of a run can be seen in figure \ref{speed}.
 
 \begin{figure}[h]
-  \includegraphics[scale=0.5]{speed}
+	\centering
+	\includegraphics[width=0.45\textwidth]{speed}
   \caption{A speed trace for a test run}
   \label{speed}
 \end{figure}
@@ -30,7 +32,9 @@ The different driving patterns are apparent in the figure, as the large number o
 
 The data from the accelerometer of the smartphone, is used for determine the driving patttern of the driver. Part of the driving pattern is determined by road conditions, such as intersection, stoplights, curves and turning. Other patterns are due to personal driving style, ie. heavy acceleration, overtaking and braking versus more smooth driving, and lastly some patterns are due to traffic conditions, like congested, accidents and slow or fast moving vehicles.
 \begin{figure}[h]
-  \includegraphics[scale=0.5]{specgram}
+	\centering
+	\includegraphics[width=0.45\textwidth]
+{specgram}
   \caption{A spectogram of the magnitude of the acceleration}
   \label{spectogram}
 \end{figure}
@@ -42,14 +46,17 @@ To be able to discern different driving patterns a simple K-means clustering alg
 
 The X,Z and Y,Z charts of the cluster centers are aligned along $X=0$ and $Y=0$ axis, again indicating that the Z value of centers are connected to low acceleration i X or Y.
 \begin{figure}[h]
-  \includegraphics[scale=0.5]{cluster_acc}
+  	\centering
+  	\includegraphics[width=0.45\textwidth]
+  	{cluster_acc}
   \caption{Clustering of accelerometer data}
   \label{cluster}
 \end{figure}
 
 To further improve the detection of the driving mode, a low pass filter was applied to the three different acceleration signals, before performing the K-means clustering. The result for the X,Y plane is shown in figure \ref{cluster2}
 \begin{figure}[h]
-  \includegraphics[scale=0.5]{cluster_acc2}
+	\centering
+	\includegraphics[width=0.45\textwidth]{cluster_acc2}
   \caption{Clustering of low-pass filtered accelerometer data}
   \label{cluster2}
 \end{figure}
