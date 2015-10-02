@@ -1,0 +1,20 @@
+\section{Related work}
+In \cite{hilpert201} the authors propose a real time data gathering system and model based on On Board Diagnostics system (OBD2). From the data gathered, emissions from the vehicle and a product carbon footprint are calculated, by a simple relation between airflow into the engine, the stoichiometric fuel to air ratio, and the carbon dioxide emission factor for gasoline/diesel. No actual data are reported.
+
+For detection and analysing of driving styles for prevention of car crashes, the authors in \cite{Johnson2011} make use of sensor fusion of sensors from smartphones, and data obtained from the internal CAN \footnote{"controller area network", an intra vehicle network standard ISO 11898} bus in cars. The authors show that it is possible to accurately detect driving events and to classify the aggressiveness of the driver from the used sensor.
+
+Models for the emission from gasoline cars are evaluated in \cite{Silva2006}, by combining simulation with measurements done with a combination of data from the OBD2 \footnote{OnBoard Diagnostic 2, a standard for communication between vehicle test equipment and vehicle}, and sensors placed in the tail pipe. Three different numerical models were compared to the measurements. The same instrument setup (OBD2 and tailpipe sensors were used in \cite{Frey}, where the goal was to estimate emission factors for different driving modes. One conclusion is that the emission pattern for cold start driving is significantly different from steady state driving.
+
+The paper \cite{Lee2010} provides an overview of different projects using mobile sensing platforms. The paper is mostly concerned with network topologies for mobile sensor network and backend support for data storage and retrieval, but also has some input on different sensors used.
+
+In \cite{Boriboon} the effects of the road grade (road inclination) on fuel consumption is investigated, though use of OBD2 measurements and models. Two different routes between a Origin-Destination pair (one route through a flat area, and one through a mountain pass) are compared in multiple trips. The fuel consumption is determined from a binary fuel cut signal from the OBD2 data, and compared to fuel consumption modelled by CMEM (comprehensive modal emission model). 
+
+For using accelerometers to determine transportation modes \cite{Hemminki2013} gives an overview of methods, applications and problems. Examples of how to use classifiers to discern between different transportation modes are given. \cite{mun_peir_2009} adds a personalized environmental impact report generated from mobile sensed data.
+
+The authors in \cite{markus2014} give an example of discerning Electric vehicles from Combustion engine vehicles, by using accelerometer data to measure the revolutions of combustion engine in idle mode. In idle mode electric vehicles do not have a turning engine.
+
+
+In the mentioned papers a cross section of methods and tools for estimation of fuel consumption and emission from light duty vehicles is presented. The tools used in the papers are OBD2, GPS and tail pipe emission sensors. The methods used are controlled driving cycles, simulation models and sensor fusion.
+ 
+The work in this paper extends and complements the work in the above mentioned papers, by using measurements from smartphone accelerometers and by controlled measurement of fuel consumption. This work can be used for vehicles that do not have an OBD2 connector and cannot be instrumented with mass flow meters for measuring fuel consumption as in \cite{haan2000,Honicky}
+

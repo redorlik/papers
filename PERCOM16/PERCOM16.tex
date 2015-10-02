@@ -1,0 +1,94 @@
+\documentclass[10pt,conference,compsoc]{IEEEtran}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+%\usepackage[margin=1.5in]{fullpage}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%\usepackage{}
+\usepackage{color}
+\definecolor{Orange}{rgb}{1,0.5,0}
+\definecolor{HBGreen}{rgb}{0,0.8,0}
+\newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[Todo: #1]}}}}
+% Macro for writing in the margin comments on what is left to be done.
+\newif\ifdraft
+               \drafttrue
+               %\draftfalse
+\ifdraft
+\newcounter{ournotecounter}
+\newcommand{\ournote}[1]{%
+\textsf{\textbf{\textcolor{Orang}{[#1]}}}}
+\newcommand{\alnote}[1]{%
+\textsf{\textbf{\textcolor{HBGreen}{[#1]}}}}
+\typeout{Compiling in draft mode.}
+\else
+\newcommand{\ournote}[1]{}
+\newcommand{\bigournote}[1]{}
+\typeout{Compiling in final mode.}
+\fi
+
+\title{From Smartphone data to Climate gas emissions in Transportation}
+%\subtitle{Using mobile sensing data}
+\author{\IEEEauthorblockN{Anders Lehmann}
+\IEEEauthorblockA{Department for Computer Science\\
+University of Aarhus\\
+Email: anders@hih.au.dk}
+\and
+\IEEEauthorblockN{Henrik Blunck}
+\IEEEauthorblockA{Department for Computer Science\\
+University of Aarhus\\
+Email: blunck@cs.au.dk}
+\and
+\IEEEauthorblockN{Niels Olof Bouvin}
+\IEEEauthorblockA{Department for Computer Science\\
+University of Aarhus\\
+Email: bouvin@cs.au.dk}
+\and
+\IEEEauthorblockN{Allan Gross}
+\IEEEauthorblockA{Department of Business Development and Technology\\
+University of Aarhus\\
+Email: agr@auhe.au.dk}
+
+}
+\date{October 2015}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Carbon dioxide emission from transport constitutes a large, and growing, part of the total carbon emissions. We present a model to estimate carbon dioxide emissions from passenger cars by using GPS data and accelerometer date gathered from smartphone apps. The model will enable a more detailed emission inventory, both in terms of location and time. As part of an experiment to establish ground truth, a method for measuring fuel consumption without instrumenting vehicles is presented. A method for discerning between different driving modes is presented, using the K-means clustering method.
+
+\end{abstract}
+\pagenumbering{arabic}	
+
+\input{intro}
+\input{related}
+%\input{mobilesensing}
+%\input{emission_models}
+%\input{}
+\input{experiment}
+\input{models}
+\input{results}
+%\input{futurework}
+\input{conclusion}
+\section*{Acknowledgment}
+This work has been supported by The Danish Council for Strategic Research as part of the EcoSense project (11-115331).
+\newpage
+\pagenumbering{gobble}	
+\bibliographystyle{abbrv}
+\bibliography{PERCOM16}
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
