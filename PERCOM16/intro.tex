@@ -1,13 +1,20 @@
 \section{Introduction}
 
-The proliferation of smartphones, brings new opportunities to researchers who are studying the behaviour of modern human beings. For research in mobility and transport smartphones potentially lowers the cost of gathering data for analysis to near zero \cite{Liu2013}.
+The proliferation of smartphones brings new opportunities to researchers who are studying the behaviour of modern human beings. For research in mobility and transport the proliferation of smartphones yields the potential to lower the cost for gathering relevant data to near zero \cite{Liu2013}.
+In this project, smartphones are a central requisite as an tool information and data gathering tool. The main idea in the project is to gather from real life activities, create models to interpret the data, and visualisations from the output of the models. 
 
-Carbon emissions from transport is a large and growing part of the total carbon emissions from human activities. In Denmark the emission of carbon dioxide from transport was 24 \% of the total Carbon emissions in 2012 \cite{nielsen2014}, and road transport is responsible for 67 \% of the Carbon emissions from transport. In order to be able to create viable measures to lower the carbon emissions from passenger transport, there is a need to have more detailed models of the carbon emissions. By using data from smartphones it is possible to get more accurate information on where and when the emissions from transport are created. These models can help policy makers and planners make informed decisions on future changes to the road transport system.
+In modern societies, carbon emissions from transport are a large and growing part of the total carbon emissions from human activities. For instance, in Denmark the emission of carbon dioxide from transport was 24 \% of the total Carbon emissions in 2012 \cite{nielsen2014}, and road transport is responsible for 67 \% of the Carbon emissions from transport. In order to be able to create viable measures to lower the carbon emissions from passenger transport, there is a need for more detailed models quantifying these emissions. By using data from smartphones we aim to obtain more accurate information on where and when emissions from transport are created. These models can help policy makers and planners make informed decisions on future changes to the road transport system and related infrastructure.
 
-To accurately model Carbon emissions from smartphone data, an experiment was performed in order to establish a ground truth. The Carbon emissions are closely related to the fuel consumption, thus the experiment gathered data about driving from an onboard smartphone and data on the amount of fuel consumed in the experiment. We chose to use some old car for the experiment and thus had to create an accurate fuel consumption measuring method, which did not involve instrumenting the vehicles. 
+As Carbon emissions are closely related to the fuel consumption, experiments were designed and carried out which gathered from an onboard smartphone  driving-related data and data on the amount of fuel consumed.
 
-The experiment is described  in section three. To find a method for measuring the fuel consumption and creating models for the fuel consumption from the available smartphone data, we studied the literature. We also looked for method to determine different driving styles and driving modes. An overview of the field is presented in section two.
+\todo{can be ommited?:}
+To accurately model Carbon emissions from smartphone data, an experiment was performed in order to establish a ground truth\todo{ground truth: explain what and why?}. 
 
-In section four the models used to convert the experimental data into emission data are presented. 
+We chose to use some old car \todo{exact details? btw, use different cars for a broader range of experiments?} for the experiments and thus 
+\todo{this sounds like a poor choice and excuse? Can we say that we aim for getting data also from all includung old cars? Btw, what about the instrumenting software that you had trouble with but which our developers now have instrumented on our department car? Would that make that your statement above obsolete?} had to create an accurate fuel consumption measuring method, which did not involve instrumenting the vehicles. 
 
-The results of the experiment, which is partly about fuel consumption measurement and modelling and partly about reliable detection of driving modes, are presented in section five and the paper is concluded in section six.
+
+The remained of the paper is organized as follows:
+In Section \ref{sec:relwork} we review related work, including methods for measuring the fuel consumption and for creating related models of fuel consumption from sensor data  Additinoally, we briefly review methods to determine different driving styles and driving modes.
+In Section \ref{sec:modeling} the models used to convert the experimental data into emission data are presented. 
+The results of the experiments which partly relate to fuel consumption measurement and modeling and partly to reliable detection of driving modes, are presented in Section \ref{sec:results} and the paper is concluded in Section \label{sec:conclusions}.
