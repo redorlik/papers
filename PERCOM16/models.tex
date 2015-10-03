@@ -7,7 +7,7 @@ The data received from smartphones comes from a variety of sensors. For this exp
 
 \subsection{Method from National Emission model}
 
-In the COPERT IV emission modelling program, emission from warm combustion engines is modelled from the speed of the vehicle. As an example the emission $CO_2$ is modelled by modelling the fuel consumption of the vehicle, since the $CO_2$ emission is directly linked to the amount of fuel burned in the engine. Equation \ref{emission} is an example of how COPERT IV models the fuel consumption of a petrol driven passenger car as a function of the speed of the vehicle \cite{Ntziachristos2012}. There is a similar equation covering the fuel consumption of diesel cars. The constants $a-e$ are found by testing and differs by car type, engine size, year of manufacturing, and regulation. The COPERT IV program uses mean values for all tested vehicles within a particular class of vehicles.
+In the COPERT IV emission modelling program, emission from warm combustion engines is modelled from the speed of the vehicle. As an example the emission CO$_2$ is modelled by modelling the fuel consumption of the vehicle, since the C$O_2$ emission is directly linked to the amount of fuel burned in the engine. Equation \ref{emission} is an example of how COPERT IV models the fuel consumption of a petrol driven passenger car as a function of the speed of the vehicle \cite{Ntziachristos2012}. There is a similar equation covering the fuel consumption of diesel cars. The constants $a-e$ are found by testing and differs by car type, engine size, year of manufacturing, and regulation. The COPERT IV program uses mean values for all tested vehicles within a particular class of vehicles.
 
 \begin{equation}
 	FC_{warm} = \frac{a + c*v + e*v^2}{1 + b*v + d*v^2}
@@ -39,23 +39,24 @@ To model the emission from accelerating vehicles, we first need to establish the
 
 In order to model the effect of vehicle acceleration, we divide the trip into six driving patterns, idle, forward acceleration, deceleration, cruise at constant speed, left turn and right turn. Reversing is not considered in this project, partly because we have no data and partly because it is an infrequent driving pattern. 
 
-Gravity 
+To use the accelerometer to discern between the different driving modes, there is a number of issues that we need to consider. The gravity creates a constant acceleration vector that we need to filter from the data. There are a number of methods for removing the gravity signal from the accelerometer data \cite{bla}. In the experiment we have relied on the the method used by SensorLog.
 
-Position of smartphone
+The position and orientation of the smartphone in the vehicle is another matter for consideration. The smartphone orientation must be fixed, and preferable with the X-axis pointing forward, and the screen facing upwards.
 
-To detect acceleration
+The different driving modes have different acceleration signatures. The forward acceleration, would have a positive acceleration in the direction of the X-axis, and only a small acceleration component i the Y-axis and Z-axis. Likewise the braking driving mode would have a significant component in the negative X-axis and only small components in the Y and Z directions. The emission model for acceleration and braking would not be the same though, as energy is spent during acceleration, but energy is not retrieved from braking in most vehicles. For the forward acceleration mode the emission model we use \todo{formulate model, give references }
 
+Turning is characterised by higher acceleration in the Y direction, and left and right turn can be discerned from the direction. The emission model for turning is not being covered in this paper.
 
-Turning
+\ref
+Cruise is characterised by no significant acceleration in either X or Y direction. For cruising the emission model from equation \ref{emission}, can be used, since the speed is constant.
 
-Cruise is characterised by
- For cruising the emission model from equation \ref{emission}, can be used, since the speed is constant.
-
-Idle
+As in cruise mode, idle mode is characterised by a lack of acceleration in X and Y, but in idle the speed is zero. The emission model for idle mode is an emission pr time unit instead of emission pr distance unit. The model is created from equation \ref{emission}, by taken the fuel consumption at lowest valid speed for the equation, which gives the fuel consumption in $g/km$ and multiplying with the lowest valid speed to get the fuel consumption i $g/h$.
 
 The emission model for the braking and idle driving mode, can be the same, since regenerative braking is not used in many passenger cars with only a combustion engine.
 
-K-means
+
+The clustering algorithm K-means is used for classifying the accelerometer data into the six driving modes. It is an unsupervised clustering algorithm, that given a number of cluster centres, minimises the mean squared error of the distance between the cluster centres and the the cluster members, for all data in the data set. 
+
 
 
 
