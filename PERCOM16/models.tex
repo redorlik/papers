@@ -43,15 +43,25 @@ To use the accelerometer to discern between the different driving modes, there i
 
 The position and orientation of the smartphone in the vehicle is another matter for consideration. The smartphone orientation must be fixed, and preferable with the X-axis pointing forward, and the screen facing upwards.
 
+\subsubsection{Forward acceleration}
 The different driving modes have different acceleration signatures. The forward acceleration, would have a positive acceleration in the direction of the X-axis, and only a small acceleration component i the Y-axis and Z-axis. Likewise the braking driving mode would have a significant component in the negative X-axis and only small components in the Y and Z directions. The emission model for acceleration and braking would not be the same though, as energy is spent during acceleration, but energy is not retrieved from braking in most vehicles. For the forward acceleration mode the emission model we use \todo{formulate model, give references }
 
+\subsubsection{Turning}
 Turning is characterised by higher acceleration in the Y direction, and left and right turn can be discerned from the direction. The emission model for turning is not being covered in this paper.
 
-\ref
+\subsubsection{Cruising}
 Cruise is characterised by no significant acceleration in either X or Y direction. For cruising the emission model from equation \ref{emission}, can be used, since the speed is constant.
 
+\subsubsection{Idle mode}
 As in cruise mode, idle mode is characterised by a lack of acceleration in X and Y, but in idle the speed is zero. The emission model for idle mode is an emission pr time unit instead of emission pr distance unit. The model is created from equation \ref{emission}, by taken the fuel consumption at lowest valid speed for the equation, which gives the fuel consumption in $g/km$ and multiplying with the lowest valid speed to get the fuel consumption i $g/h$.
+\begin{figure}[h]
+	\centering
+  \includegraphics[width=0.45\textwidth]{fc_liter_pr_hour}
+  \caption{Fuel consumption  (litres pr hour) versus speed for 1999 passenger car.}
+  \label{FC}
+\end{figure}
 
+\subsubsection{Braking}
 The emission model for the braking and idle driving mode, can be the same, since regenerative braking is not used in many passenger cars with only a combustion engine.
 
 
